@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu, X, ShoppingBag, Search } from "lucide-react";
+import { Menu, X, ShoppingBag, Search, UserRound } from "lucide-react";
 import { Button } from "./ui/Button.tsx";
 
 export const Nav = () => {
@@ -38,6 +38,9 @@ export const Nav = () => {
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon" className="text-foreground">
               <Search className="w-5 h-5" />
+            </Button>
+            <Button variant="ghost" size="icon" className="text-foreground">
+              <UserRound className="w-5 h-5" />
             </Button>
             <Button variant="ghost" size="icon" className="text-foreground relative">
               <ShoppingBag className="w-5 h-5" />
