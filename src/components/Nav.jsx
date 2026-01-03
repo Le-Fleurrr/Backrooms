@@ -8,7 +8,7 @@ export const Nav = () => {
   const navLinks = [
     { name: "Yeni Gələnlər", href: "#new" },
     { name: "Janrlar", href: "#genres" },
-    { name: "Hesab", href: "#account" },
+    { name: "Sifariş", href: "#orders" },
     { name: "Haqqımızda", href: "#about" },
   ];
 
@@ -39,13 +39,15 @@ export const Nav = () => {
             <Button variant="ghost" size="icon" className="text-foreground">
               <Search className="w-5 h-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="text-foreground">
-              <UserRound className="w-5 h-5" />
-            </Button>
             <Button variant="ghost" size="icon" className="text-foreground relative">
               <ShoppingBag className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center">2</span>
             </Button>
+            <a href="#account">
+              <Button variant="ghost" size="icon" className="text-foreground">
+                <UserRound className="w-5 h-5" />
+              </Button>
+            </a>
             <Button
               variant="ghost"
               size="icon"

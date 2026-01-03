@@ -1,11 +1,7 @@
 import React from 'react'
 
-const Account = () => {
+export const Account = () => {
   return (
-    <div className='Account'>
-        <h1>Moshi Moshi</h1>
-        </div>
+    <h1>Moshi Moshi</h1>
   )
 }
-
-export default Account
