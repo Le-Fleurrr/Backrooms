@@ -90,7 +90,7 @@ export const FeaturedAlbums = () => {
                 </div>
 
                 <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <p className="text-2xl font-serif font-bold">${album.price}</p>
+                  <p className="text-2xl font-serif font-bold">{album.price} ₼</p>
                   <Button size="sm" className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
                     <ShoppingCart className="w-4 h-4" />
                     Add to Cart

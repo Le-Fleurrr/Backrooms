@@ -18,29 +18,28 @@ export const Newsletter = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-primary font-medium tracking-widest text-sm uppercase mb-2">
-            Stay in the Loop
+            Yeniliklərdən xəbərdar olun
           </p>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-            Join the Groove Club
+            Vinyl Baku bülleteninə qoşulun
           </h2>
           <p className="text-muted-foreground text-lg mb-8">
-            Get exclusive access to new releases, rare finds, and special discounts. 
-            No spam, just pure vinyl love.
+            Spam olmadan yeni buraxılışlara, nadir tapıntılara və xüsusi endirimlərə eksklüziv giriş əldə edin.
           </p>
 
           <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Email daxil edin"
               className="flex-1 bg-background border h-12 px-4 rounded-md focus:border-primary"
             />
             <Button type="submit" size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8">
-              Subscribe
+              Abunə olun
             </Button>
           </form>
 
           <p className="text-sm text-muted-foreground mt-4">
-            Join 10,000+ vinyl enthusiasts already in the club
+            Klubda artıq 10.000+ vinil abunəçisinə qoşulun
           </p>
         </div>
       </div>
