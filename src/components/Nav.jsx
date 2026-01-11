@@ -20,7 +20,7 @@ export const Nav = () => {
             <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
               <div className="w-3 h-3 rounded-full bg-background" />
             </div>
-            <span className="font-serif text-2xl font-bold tracking-tight">Vinyl Baku</span>
+            <span className="font-serif text-2xl font-bold tracking-tight">Backrooms</span>
           </a>
 
           <div className="hidden md:flex items-center gap-8">

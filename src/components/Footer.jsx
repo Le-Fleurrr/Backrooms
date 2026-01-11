@@ -18,7 +18,7 @@ export const Footer = () => {
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
                 <div className="w-3 h-3 rounded-full bg-background" />
               </div>
-              <span className="font-serif text-2xl font-bold">Vinyl Baku</span>
+              <span className="font-serif text-2xl font-bold">Backrooms</span>
             </a>
             <p className="text-muted-foreground text-sm mb-6">
               Premium vinil valları üçün məkanınız. Musiqini eşitmək üçün nəzərdə tutulduğu kimi yaşayın.
@@ -59,7 +59,7 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-border mt-16 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2026 Vinyl Baku. All rights reserved.
+            © 2026 Backrooms. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>

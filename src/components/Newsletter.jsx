@@ -21,7 +21,7 @@ export const Newsletter = () => {
             Yeniliklərdən xəbərdar olun
           </p>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-            Vinyl Baku bülleteninə qoşulun
+            Backrooms bülleteninə qoşulun
           </h2>
           <p className="text-muted-foreground text-lg mb-8">
             Spam olmadan yeni buraxılışlara, nadir tapıntılara və xüsusi endirimlərə eksklüziv giriş əldə edin.
