@@ -15,7 +15,7 @@ interface Album {
   year: number;
   isNew?: boolean;
   image: any;
-  vinylColor: string; // Changed from VinylColor to string
+  vinylColor: string;
   description: string;
 }
 
@@ -56,9 +56,9 @@ export const FeaturedAlbums = () => {
                 </span>
               )}
 
-              {/* Vinyl Visual with Album Art */}
+
               <div className="relative h-48 flex items-center justify-center mb-6">
-                {/* Album cover background - FIXED POSITION */}
+
                 {album.image && (
                   <div className="absolute inset-0 flex items-center justify-start pl-4">
                     <div className="w-40 h-40 rounded-lg overflow-hidden shadow-xl">
@@ -71,10 +71,10 @@ export const FeaturedAlbums = () => {
                   </div>
                 )}
                 
-                {/* Background decorative gradient */}
+
                 <div className="absolute w-40 h-40 bg-gradient-to-br from-primary/20 to-transparent rounded-lg transform -rotate-6" />
                 
-                {/* Vinyl disc - MOVES on hover */}
+
                 <div 
                   className={`relative transition-transform duration-500 ease-out ${
                     hoveredId === album.id ? "translate-x-16" : "translate-x-0"
@@ -107,6 +107,10 @@ export const FeaturedAlbums = () => {
                   <span className="px-2 py-1 bg-secondary rounded">{album.genre}</span>
                   <span>•</span>
                   <span>{album.year}</span>
+                </div>
+
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <span>{album.description}</span>
                 </div>
 
                 <div className="flex items-center justify-between pt-4 border-t border-border">
