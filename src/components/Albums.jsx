@@ -18,7 +18,7 @@ export const albums = [
     isNew: true,
     image: hurryUpTomorrow,
     vinylColor: "clear",
-    description: "The highly anticipated latest album from The Weeknd."
+    description: "The Weeknd çoxdan gözlənilən son albomu."
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ export const albums = [
     year: 2015,
     image: rodeo,
     vinylColor: "orange",
-    description: "Travis Scott's debut studio album featuring hit tracks."
+    description: "Travis Skottun hit mahnılardan ibarət debüt studiya albomu."
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ export const albums = [
     year: 2004,
     image: collegeDropout,
     vinylColor: "black",
-    description: "Kanye West's groundbreaking debut album."
+    description: "Kanye West-in debüt albomu."
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ export const albums = [
     isNew: true,
     image: wholeLottaRed,
     vinylColor: "red",
-    description: "The latest and best rage album of the '20's."
+    description: "20-ci illərin ən son və ən yaxşı qəzəb albomu."
   },
   {
     id: 5,
@@ -63,7 +63,7 @@ export const albums = [
     year: 2021,
     image: callMeIfYouGetLost,
     vinylColor: "blue",
-    description: "Tyler's Grammy-winning masterpiece."
+    description: "Taylerin Qremmi mükafatı qazanan şah əsəri."
   },
   {
     id: 6,
@@ -75,7 +75,7 @@ export const albums = [
     isNew: true,
     image: weStillDontTrustYou,
     vinylColor: "purple",
-    description: "Future & Metro Boomin keep proving that they're a great duo together."
+    description: "Future və Metro Boomin birlikdə əla duet olduqlarını sübut etməyə davam edirlər."
   },
 ];
 
