@@ -1,4 +1,3 @@
-// Import all album images
 import hurryUpTomorrow from '../assets/img/hurryUpTomorrow.png';
 import rodeo from '../assets/img/rodeo.jpg';
 import collegeDropout from '../assets/img/theCollegeDropout.jpg';
@@ -6,7 +5,7 @@ import wholeLottaRed from '../assets/img/WLR_FullRed.jpg';
 import callMeIfYouGetLost from '../assets/img/callMeIfYouGetLost.jpg';
 import weStillDontTrustYou from '../assets/img/weStillDontTrustYou.jpg';
 
-// Export albums array
+
 export const albums = [
   {
     id: 1,
@@ -19,6 +18,7 @@ export const albums = [
     image: hurryUpTomorrow,
     vinylColor: "clear",
     sleeveColor: "orange",
+    accentColor: "orange", 
     description: "The Weeknd çoxdan gözlənilən son albomu."
   },
   {
@@ -31,6 +31,7 @@ export const albums = [
     image: rodeo,
     vinylColor: "orange",
     sleeveColor: "brown",
+    accentColor: "amber",
     description: "Travis Skottun hit mahnılardan ibarət debüt studiya albomu."
   },
   {
@@ -41,8 +42,9 @@ export const albums = [
     genre: "Hip-Hop",
     year: 2004,
     image: collegeDropout,
-    vinylColor: "black",
+    vinylColor: "orange",
     sleeveColor: "yellow",
+    accentColor: "yellow",
     description: "Kanye West-in debüt albomu."
   },
   {
@@ -51,11 +53,12 @@ export const albums = [
     artist: "Playboi Carti",
     price: 150,
     genre: "Hip-Hop/Rap",
-    year: 2020,
+    year: 2024,
     isNew: true,
     image: wholeLottaRed,
     vinylColor: "red",
     sleeveColor: "red",
+    accentColor: "red",
     description: "20-ci illərin ən son və ən yaxşı qəzəb albomu."
   },
   {
@@ -66,8 +69,9 @@ export const albums = [
     genre: "Hip-Hop/Rap",
     year: 2021,
     image: callMeIfYouGetLost,
-    vinylColor: "blue",
+    vinylColor: "green",
     sleeveColor: "green",
+    accentColor: "green",
     description: "Taylerin Qremmi mükafatı qazanan şah əsəri."
   },
   {
@@ -81,18 +85,7 @@ export const albums = [
     image: weStillDontTrustYou,
     vinylColor: "purple",
     sleeveColor: "gray",
+    accentColor: "purple",
     description: "Future və Metro Boomin birlikdə əla duet olduqlarını sübut etməyə davam edirlər."
   },
 ];
-
-export const getAlbumById = (id) => {
-  return albums.find(album => album.id === id);
-};
-
-export const getNewAlbums = () => {
-  return albums.filter(album => album.isNew);
-};
-
-export const getAlbumsByGenre = (genre) => {
-  return albums.filter(album => album.genre === genre);
-};

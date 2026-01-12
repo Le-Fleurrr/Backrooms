@@ -40,6 +40,23 @@ export const FeaturedAlbums = () => {
     return colorMap[color || "default"] || colorMap.default;
   };
 
+  // Function to get border and text hover colors
+  const getAccentColors = (color?: string) => {
+    const colorMap: { [key: string]: { border: string; text: string } } = {
+      red: { border: "border-red-500/50", text: "group-hover:text-red-500" },
+      blue: { border: "border-blue-500/50", text: "group-hover:text-blue-500" },
+      purple: { border: "border-purple-500/50", text: "group-hover:text-purple-500" },
+      green: { border: "border-green-500/50", text: "group-hover:text-green-500" },
+      orange: { border: "border-orange-500/50", text: "group-hover:text-orange-500" },
+      pink: { border: "border-pink-500/50", text: "group-hover:text-pink-500" },
+      yellow: { border: "border-yellow-500/50", text: "group-hover:text-yellow-500" },
+      amber: { border: "border-amber-600/50", text: "group-hover:text-amber-600" },
+      gray: { border: "border-gray-500/50", text: "group-hover:text-gray-500" },
+      default: { border: "border-primary/50", text: "group-hover:text-primary" }
+    };
+    return colorMap[color || "default"] || colorMap.default;
+  };
+
   return (
     <section id="new" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
@@ -62,10 +79,12 @@ export const FeaturedAlbums = () => {
 
         {/* Albums Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {albums.map((album: Album) => (
+          {albums.map((album: Album) => {
+            const accentColors = getAccentColors((album as any).accentColor);
+            return (
             <div
               key={album.id}
-              className="group relative bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-all duration-300 cursor-pointer"
+              className={`group relative bg-card rounded-xl p-6 border transition-all duration-300 cursor-pointer ${accentColors.border} hover:shadow-lg`}
               onMouseEnter={() => setHoveredId(album.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
@@ -113,7 +132,7 @@ export const FeaturedAlbums = () => {
               <div className="space-y-3">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="font-serif text-xl font-bold group-hover:text-primary transition-colors">
+                    <h3 className={`font-serif text-xl font-bold transition-colors ${accentColors.text}`}>
                       {album.title}
                     </h3>
                     <p className="text-muted-foreground">{album.artist}</p>
@@ -138,7 +157,7 @@ export const FeaturedAlbums = () => {
                 </div>
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </section>
