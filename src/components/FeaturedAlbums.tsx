@@ -16,14 +16,14 @@ interface Album {
   year: number;
   isNew?: boolean;
   image: any;
-  vinylColor: string;
+  vinylColor: string; // Changed from VinylColor to string
   description: string;
 }
 
 export const FeaturedAlbums = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
-
+  // Function to get Tailwind color classes based on color name
   const getSleeveColorClass = (color?: string) => {
     const colorMap: { [key: string]: string } = {
       red: "from-red-500/20 to-transparent",
@@ -40,7 +40,7 @@ export const FeaturedAlbums = () => {
     return colorMap[color || "default"] || colorMap.default;
   };
 
-
+  // Function to get border and text hover colors
   const getAccentColors = (color?: string) => {
     const colorMap: { [key: string]: { border: string; text: string } } = {
       red: { border: "border-red-500/50", text: "group-hover:text-red-500" },
@@ -77,14 +77,15 @@ export const FeaturedAlbums = () => {
           </Button>
         </div>
 
-
+        {/* Albums Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {albums.map((album: Album) => {
             const accentColors = getAccentColors((album as any).accentColor);
             return (
-            <div
+            <Link
               key={album.id}
-              className={`group relative bg-card rounded-xl p-6 border transition-all duration-300 cursor-pointer ${accentColors.border} hover:shadow-lg`}
+              to={`/album/${album.id}`}
+              className={`group relative bg-card rounded-xl p-6 border transition-all duration-300 cursor-pointer ${accentColors.border} hover:shadow-lg block`}
               onMouseEnter={() => setHoveredId(album.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
@@ -109,9 +110,11 @@ export const FeaturedAlbums = () => {
                     </div>
                   </div>
                 )}
-
+                
+                {/* Background decorative gradient */}
                 <div className={`absolute w-40 h-40 bg-gradient-to-br ${getSleeveColorClass((album as any).sleeveColor)} rounded-lg transform -rotate-6`} />
-
+                
+                {/* Vinyl disc - MOVES on hover */}
                 <div 
                   className={`relative transition-transform duration-500 ease-out ${
                     hoveredId === album.id ? "translate-x-16" : "translate-x-0"
@@ -126,15 +129,24 @@ export const FeaturedAlbums = () => {
                 </div>
               </div>
 
+              {/* Info */}
               <div className="space-y-3">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className={`font-serif text-xl font-bold transition-colors ${accentColors.text}`}>
                       {album.title}
                     </h3>
-                    <p className="text-muted-foreground">{album.artist}</p>
+                    <p 
+                      className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = `/artist/${album.artist.toLowerCase().replace(/\s+/g, '-')}`;
+                      }}
+                    >
+                      {album.artist}
+                    </p>
                   </div>
-                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary shrink-0">
+                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary shrink-0" onClick={(e) => e.preventDefault()}>
                     <Heart className="w-5 h-5" />
                   </Button>
                 </div>
@@ -145,19 +157,15 @@ export const FeaturedAlbums = () => {
                   <span>{album.year}</span>
                 </div>
 
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <span>{album.description}</span>
-                </div>
-
                 <div className="flex items-center justify-between pt-4 border-t border-border">
                   <p className="text-2xl font-serif font-bold">{album.price} ₼</p>
-                  <Button size="sm" className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
+                  <Button size="sm" className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90" onClick={(e) => e.preventDefault()}>
                     <ShoppingCart className="w-4 h-4" />
                     Add to Cart
                   </Button>
                 </div>
               </div>
-            </div>
+            </Link>
           )})}
         </div>
       </div>
