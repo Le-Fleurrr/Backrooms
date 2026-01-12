@@ -12,10 +12,14 @@ import { Hero } from "./components/Hero.jsx";
 import { ArtistPage } from './components/ArtistPage';
 import { AlbumPage } from './components/AlbumPage';
 import { FeaturedAlbums } from './components/FeaturedAlbums.js';
+import { Cloudinary } from '@cloudinary/url-gen';
 
 const queryClient = new QueryClient();
 
 
-function App() { return (<QueryClientProvider client={queryClient}> <TooltipProvider> <Toaster /> <Sonner /> <HashRouter> <Routes> <Route path="/" element={<div> <Index /> <Hero /> <FeaturedAlbums /> </div>} /> <Route path="/account" element={<Account />} /> <Route path="/collections" element={<Collections />} /> <Route path="/artist/:artistName" element={<ArtistPage />} /> <Route path="/album/:albumId" element={<AlbumPage />} /> <Route path="*" element={<NotFound />} /> </Routes> </HashRouter> </TooltipProvider> </QueryClientProvider>); }
+function App() {
+    const cld = new Cloudinary({ cloud: { cloudName: 'deroy68n9' } });
+    return (<QueryClientProvider client={queryClient}> <TooltipProvider> <Toaster /> <Sonner /> <HashRouter> <Routes> <Route path="/" element={<div> <Index /> <Hero /> <FeaturedAlbums /> </div>} /> <Route path="/account" element={<Account />} /> <Route path="/collections" element={<Collections />} /> <Route path="/artist/:artistName" element={<ArtistPage />} /> <Route path="/album/:albumId" element={<AlbumPage />} /> <Route path="*" element={<NotFound />} /> </Routes> </HashRouter> </TooltipProvider> </QueryClientProvider>);
+}
 
 export default App;

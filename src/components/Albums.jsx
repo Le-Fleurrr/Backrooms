@@ -1,9 +1,9 @@
-import hurryUpTomorrow from '../assets/img/hurryUpTomorrow.png';
-import rodeo from '../assets/img/rodeo.jpg';
-import collegeDropout from '../assets/img/theCollegeDropout.jpg';
-import wholeLottaRed from '../assets/img/WLR_FullRed.jpg';
-import callMeIfYouGetLost from '../assets/img/callMeIfYouGetLost.jpg';
-import weStillDontTrustYou from '../assets/img/weStillDontTrustYou.jpg';
+const hurryUpTomorrow = "https://res.cloudinary.com/deroy68n9/image/upload/v1768226158/hurryUpTomorrow_tqkjsu.png"
+const rodeo = 'https://res.cloudinary.com/deroy68n9/image/upload/v1768226174/rodeo_arm5ez.jpg';
+const collegeDropout = 'https://res.cloudinary.com/deroy68n9/image/upload/v1768226175/theCollegeDropout_asoeiz.jpg';
+const wholeLottaRed = 'https://res.cloudinary.com/deroy68n9/image/upload/v1768226181/WLR_llw1gy.png';
+const callMeIfYouGetLost = 'https://res.cloudinary.com/deroy68n9/image/upload/v1768226152/callMeIfYouGetLost_acytlc.jpg';
+const weStillDontTrustYou = 'https://res.cloudinary.com/deroy68n9/image/upload/v1768226181/weStillDontTrustYou_tqhqf6.jpg';
 
 
 export const albums = [
