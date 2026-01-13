@@ -23,7 +23,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <Router>
+        <Router basename='/Backrooms/'>
           <Routes>
             <Route 
               path="/" 
