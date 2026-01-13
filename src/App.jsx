@@ -8,8 +8,8 @@ import Index from './components/pages/Index';
 import NotFound from "./components/pages/NotFound";
 import { Account } from './components/Account';
 import { Hero } from "./components/Hero.jsx";
-import { ArtistPage } from './components/ArtistPage';
-import { AlbumPage } from './components/AlbumPage';
+import ArtistPage from './components/ArtistPage';
+import AlbumPage from './components/AlbumPage';
 import { FeaturedAlbums } from './components/FeaturedAlbums.js';
 import { Cloudinary } from '@cloudinary/url-gen';
 

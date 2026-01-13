@@ -2,20 +2,25 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { VinylRecord } from "./VinylRecord.tsx";
 import { Button } from "./ui/Button.tsx";
-import { ShoppingCart, Heart } from "lucide-react";
+import { ShoppingCart, Heart, ArrowLeft } from "lucide-react";
 import { albums } from "./Albums.jsx";
 
-export const ArtistPage = () => {
+const ArtistPage = () => {
   const { artistName } = useParams();
   const [hoveredId, setHoveredId] = useState(null);
-  
+  const [bannerError, setBannerError] = useState(false);
+  const [profileError, setProfileError] = useState(false);
 
   const artistAlbums = albums.filter(
     album => album.artist.toLowerCase().replace(/\s+/g, '-') === artistName
   );
-  
 
   const artist = artistAlbums[0]?.artist || "Artist";
+  
+  // Get artist banner and profile from first album (you can add these fields to your albums data)
+  const artistData = artistAlbums[0] || {};
+  const artistBanner = artistData.artistBanner || artistData.image; // Fallback to album cover
+  const artistProfile = artistData.artistProfile || artistData.image; // Fallback to album cover
 
   if (artistAlbums.length === 0) {
     return (
@@ -48,21 +53,72 @@ export const ArtistPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-6 py-12">
-        <Link to="/" className="text-primary hover:underline mb-8 inline-block">
-          ← Ana səhifəyə qayıt
-        </Link>
+      {/* Artist Banner Section */}
+      <div className="relative h-80 md:h-96 w-full overflow-hidden">
+        {/* Banner Image */}
+        {artistBanner && !bannerError ? (
+          <img 
+            src={artistBanner}
+            alt={`${artist} banner`}
+            className="w-full h-full object-cover"
+            onError={() => setBannerError(true)}
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5" />
+        )}
         
-        {/* Artist Header */}
-        <div className="mb-16">
-          <h1 className="text-6xl md:text-7xl font-serif font-bold mb-4">
-            {artist}
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            {artistAlbums.length} albom{artistAlbums.length > 1 ? '' : ''}
-          </p>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+        
+        {/* Back Button */}
+        <div className="absolute top-6 left-6">
+          <Link to="/">
+            <Button variant="ghost" className="text-white hover:text-white/80 backdrop-blur-sm bg-black/20">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Geri
+            </Button>
+          </Link>
         </div>
 
+        {/* Artist Info - Positioned at Bottom */}
+        <div className="absolute bottom-0 left-0 right-0 container mx-auto px-6 pb-8">
+          <div className="flex items-end gap-6">
+            {/* Profile Picture */}
+            <div className="relative">
+              {artistProfile && !profileError ? (
+                <img 
+                  src={artistProfile}
+                  alt={artist}
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-background shadow-2xl"
+                  onError={() => setProfileError(true)}
+                />
+              ) : (
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-card border-4 border-background shadow-2xl flex items-center justify-center">
+                  <span className="text-4xl font-serif font-bold text-muted-foreground">
+                    {artist.charAt(0)}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* Artist Name & Stats */}
+            <div className="flex-1 pb-4">
+              <p className="text-sm font-medium text-muted-foreground mb-2">İFAÇI</p>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-2 text-white drop-shadow-lg">
+                {artist}
+              </h1>
+              <p className="text-lg text-white/90 drop-shadow">
+                {artistAlbums.length} albom
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Albums Section */}
+      <div className="container mx-auto px-6 py-12">
+        <h2 className="text-3xl font-serif font-bold mb-8">Albomlar</h2>
+        
         {/* Albums Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {artistAlbums.map((album) => {
@@ -156,3 +212,5 @@ export const ArtistPage = () => {
     </div>
   );
 };
+
+export default ArtistPage;

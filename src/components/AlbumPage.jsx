@@ -4,7 +4,7 @@ import { Button } from "./ui/Button.tsx";
 import { ShoppingCart, Heart, ArrowLeft } from "lucide-react";
 import { albums } from "./Albums.jsx";
 
-export const AlbumPage = () => {
+const AlbumPage = () => {
   const { albumId } = useParams();
   const navigate = useNavigate();
   const [imageError, setImageError] = useState(false);
@@ -38,65 +38,67 @@ export const AlbumPage = () => {
           Geri
         </Button>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Left: Album Art from Cloudinary */}
-          <div className="sticky top-8">
-            <div className="relative aspect-square max-w-xl mx-auto">
+        <div className="max-w-4xl mx-auto">
+          {/* Album Cover at Top */}
+          <div className="relative mb-8">
+            <div className="aspect-square w-full rounded-xl overflow-hidden shadow-2xl">
               {album.image && !imageError ? (
-                <div className="w-full h-full rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-300 hover:scale-105">
-                  <img 
-                    src={album.image} 
-                    alt={`${album.title} cover`}
-                    className="w-full h-full object-cover"
-                    onError={() => setImageError(true)}
-                  />
-                </div>
+                <img 
+                  src={album.image} 
+                  alt={`${album.title} cover`}
+                  className="w-full h-full object-cover"
+                  onError={() => setImageError(true)}
+                />
               ) : (
-                <div className="w-full h-full rounded-xl overflow-hidden shadow-2xl bg-card border border-border flex items-center justify-center">
+                <div className="w-full h-full bg-card border border-border flex items-center justify-center">
                   <div className="text-center p-8">
                     <p className="text-muted-foreground">Şəkil yüklənə bilmədi</p>
                   </div>
                 </div>
               )}
             </div>
+
+            {/* Details Overlay at Bottom Center of Cover */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-8 text-white">
+              <div className="text-center">
+                {album.isNew && (
+                  <span className="inline-block bg-primary text-primary-foreground text-sm font-bold px-4 py-2 rounded-full mb-4">
+                    YENI BURAXILIŞ
+                  </span>
+                )}
+                
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-3">
+                  {album.title}
+                </h1>
+                
+                <Link 
+                  to={`/artist/${artistSlug}`}
+                  className="text-xl md:text-2xl text-white/90 hover:text-primary transition-colors inline-block mb-4"
+                >
+                  {album.artist}
+                </Link>
+                
+                <div className="flex items-center justify-center gap-3 text-sm md:text-base text-white/80">
+                  <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-lg">{album.genre}</span>
+                  <span>•</span>
+                  <span>{album.year}</span>
+                  <span>•</span>
+                  <span className="capitalize">{album.vinylColor} Vinyl</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Right: Album Info */}
+          {/* Description and Purchase Section */}
           <div className="space-y-6">
-            {album.isNew && (
-              <span className="inline-block bg-primary text-primary-foreground text-sm font-bold px-4 py-2 rounded-full">
-                YENI BURAXILIŞ
-              </span>
-            )}
-
-            <div>
-              <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4">
-                {album.title}
-              </h1>
-              <Link 
-                to={`/artist/${artistSlug}`}
-                className="text-2xl text-muted-foreground hover:text-primary transition-colors"
-              >
-                {album.artist}
-              </Link>
-            </div>
-
-            <div className="flex items-center gap-4 text-muted-foreground">
-              <span className="px-3 py-1 bg-secondary rounded-lg">{album.genre}</span>
-              <span>•</span>
-              <span>{album.year}</span>
-              <span>•</span>
-              <span className="capitalize">{album.vinylColor} Vinyl</span>
-            </div>
-
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed text-center max-w-2xl mx-auto">
               {album.description}
             </p>
 
             <div className="pt-6 border-t border-border">
-              <p className="text-4xl font-serif font-bold mb-6">{album.price} ₼</p>
+              <p className="text-4xl font-serif font-bold mb-6 text-center">{album.price} ₼</p>
               
-              <div className="flex gap-4">
+              <div className="flex gap-4 max-w-md mx-auto">
                 <Button 
                   size="lg" 
                   className="flex-1 gap-2 bg-primary text-primary-foreground hover:bg-primary/90"
@@ -115,9 +117,9 @@ export const AlbumPage = () => {
             </div>
 
             {/* Additional Info */}
-            <div className="pt-6 border-t border-border space-y-4">
-              <h3 className="text-xl font-serif font-bold">Məhsul Haqqında</h3>
-              <ul className="space-y-2 text-muted-foreground">
+            <div className="pt-6 border-t border-border">
+              <h3 className="text-xl font-serif font-bold mb-4 text-center">Məhsul Haqqında</h3>
+              <ul className="space-y-2 text-muted-foreground max-w-md mx-auto">
                 <li>• Orijinal vinil qeyd</li>
                 <li>• {album.vinylColor} rəng vinil</li>
                 <li>• Yüksək keyfiyyətli audio</li>
@@ -130,3 +132,5 @@ export const AlbumPage = () => {
     </div>
   );
 };
+
+export default AlbumPage;
