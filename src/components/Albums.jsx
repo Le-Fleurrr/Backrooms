@@ -53,7 +53,7 @@ export const albums = [
     artist: "Playboi Carti",
     price: 150,
     genre: "Hip-Hop/Rap",
-    year: 2024,
+    year: 2020,
     isNew: true,
     image: wholeLottaRed,
     vinylColor: "red",
