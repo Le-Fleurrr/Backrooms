@@ -8,8 +8,10 @@ const AlbumPage = () => {
   const { albumId } = useParams();
   const navigate = useNavigate();
   const [imageError, setImageError] = useState(false);
+  const [showAnimated, setShowAnimated] = useState(true);
   
   const album = albums.find(a => a.id === parseInt(albumId));
+  const coverImage = (album?.animatedCover && showAnimated) ? album.animatedCover : album?.image;
 
   if (!album) {
     return (
@@ -42,9 +44,9 @@ const AlbumPage = () => {
           {/* Album Cover at Top */}
           <div className="relative mb-8">
             <div className="aspect-square w-full rounded-xl overflow-hidden shadow-2xl">
-              {album.image && !imageError ? (
+              {coverImage && !imageError ? (
                 <img 
-                  src={album.image} 
+                  src={coverImage} 
                   alt={`${album.title} cover`}
                   className="w-full h-full object-cover"
                   onError={() => setImageError(true)}
