@@ -122,7 +122,8 @@ export const Collections = () => {
         {/* Albums Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {filteredAlbums.map((album) => (
-            <div
+            <Link
+              to={`/album/${album.id}`} 
               key={album.id}
               className="group relative bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-all duration-300 cursor-pointer"
               onMouseEnter={() => setHoveredId(album.id)}
@@ -197,7 +198,7 @@ export const Collections = () => {
                   </Button>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

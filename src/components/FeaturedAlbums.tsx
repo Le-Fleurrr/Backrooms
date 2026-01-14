@@ -1,9 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { VinylRecord } from "./VinylRecord.tsx";
 import { Button } from "./ui/Button.tsx";
 import { ShoppingCart, Heart } from "lucide-react";
 import { albums } from "./Albums.jsx";
-import { Link } from "react-router-dom";
 
 type VinylColor = "black" | "red" | "blue" | "purple" | "green" | "orange" | "pink" | "clear";
 
@@ -16,12 +16,15 @@ interface Album {
   year: number;
   isNew?: boolean;
   image: any;
-  vinylColor: string; // Changed from VinylColor to string
+  vinylColor: string;
   description: string;
 }
 
 export const FeaturedAlbums = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+
+  // Limit to first 6 albums
+  const featuredAlbums = albums.slice(0, 6);
 
   // Function to get Tailwind color classes based on color name
   const getSleeveColorClass = (color?: string) => {
@@ -79,7 +82,7 @@ export const FeaturedAlbums = () => {
 
         {/* Albums Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {albums.map((album: Album) => {
+          {featuredAlbums.map((album: Album) => {
             const accentColors = getAccentColors((album as any).accentColor);
             return (
             <Link
@@ -132,10 +135,17 @@ export const FeaturedAlbums = () => {
               {/* Info */}
               <div className="space-y-3">
                 <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className={`font-serif text-xl font-bold transition-colors ${accentColors.text}`}>
-                      {album.title}
-                    </h3>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className={`font-serif text-xl font-bold transition-colors ${accentColors.text}`}>
+                        {album.title}
+                      </h3>
+                      {(album as any).isExplicit && (
+                        <span className="text-xs font-bold px-2 py-0.5 bg-muted text-muted-foreground border border-border rounded">
+                          E
+                        </span>
+                      )}
+                    </div>
                     <p 
                       className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
                       onClick={(e) => {
@@ -146,7 +156,12 @@ export const FeaturedAlbums = () => {
                       {album.artist}
                     </p>
                   </div>
-                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary shrink-0" onClick={(e) => e.preventDefault()}>
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    className="text-muted-foreground hover:text-primary shrink-0" 
+                    onClick={(e) => e.preventDefault()}
+                  >
                     <Heart className="w-5 h-5" />
                   </Button>
                 </div>
@@ -159,14 +174,19 @@ export const FeaturedAlbums = () => {
 
                 <div className="flex items-center justify-between pt-4 border-t border-border">
                   <p className="text-2xl font-serif font-bold">{album.price} ₼</p>
-                  <Button size="sm" className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90" onClick={(e) => e.preventDefault()}>
+                  <Button 
+                    size="sm" 
+                    className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90" 
+                    onClick={(e) => e.preventDefault()}
+                  >
                     <ShoppingCart className="w-4 h-4" />
-                    Add to Cart
+                    Səbətə əlavə et
                   </Button>
                 </div>
               </div>
             </Link>
-          )})}
+            );
+          })}
         </div>
       </div>
     </section>
