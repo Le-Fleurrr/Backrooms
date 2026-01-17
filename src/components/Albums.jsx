@@ -129,7 +129,9 @@ const callMeIfYouGetLost = {
 
 const flowerBoy = {
   cover: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768572775/flowerBoy_vkgov9.jpg',
-  vinyl: ['https://res.cloudinary.com/deroy68n9/image/upload/v1768226156/flowerBoy_vinyl_cjs4ya.jpg']
+  vinyl: ['https://res.cloudinary.com/deroy68n9/image/upload/v1768226156/flowerBoy_vinyl_cjs4ya.jpg',
+    'https://res.cloudinary.com/deroy68n9/image/upload/v1768226156/flowerBoy1_cp6uqn.jpg'
+  ]
 };
 
 const weStillDontTrustYou = {
@@ -191,6 +193,58 @@ const vultures1 = {
   cover: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768226176/Vultures1_zyoy9u.jpg',
   vinyl: ['https://res.cloudinary.com/deroy68n9/image/upload/v1768226177/Vultures1_vinyl_xpanyq.jpg'],
 };
+
+const ye = {
+  cover: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768656701/ye_felov5.jpg',
+  vinyl: ['https://res.cloudinary.com/deroy68n9/image/upload/v1768226192/ye_vinyl_g8eezy.jpg',
+    'https://res.cloudinary.com/deroy68n9/image/upload/v1768226191/ye1_ru2tgp.jpg'
+  ],
+};
+
+const jackboys = {
+  cover: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768656237/jackboys_mjqgwu.jpg',
+  vinyl: ['https://res.cloudinary.com/deroy68n9/image/upload/v1768656236/jackboys_vinyl_ajwbdb.png'],
+};
+
+const starboy = {
+  cover: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768657130/starboy_t7odgq.jpg',
+  vinyl: ['https://res.cloudinary.com/deroy68n9/image/upload/v1768226175/starboy_vinyl_rlavil.jpg'],
+};
+
+const uyScuti = {
+  cover: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768657518/uyScuti_yb6irv.jpg',
+  vinyl: ['https://res.cloudinary.com/deroy68n9/image/upload/v1768656236/uySvuti_vinyl4_cfzzmx.png',
+    'https://res.cloudinary.com/deroy68n9/image/upload/v1768656236/uyScuti_vinyl5_n35dhd.png'
+  ],
+  tracklist: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768656262/uyScuti_tl1_uzatdm.png'
+};
+
+const uyScutiSP5DER = {
+  cover: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768657519/uyScuti1_q9jg7g.png',
+  vinyl: ['https://res.cloudinary.com/deroy68n9/image/upload/v1768656236/uy_scuti_vinyl1_zenbqk.png',
+    'https://res.cloudinary.com/deroy68n9/image/upload/v1768656237/uyScuti_vinyl2_gtnco1.png'
+  ],
+  tracklist: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768656237/uyScuti_tl_oyy0gh.png'
+};
+
+const hardstonePsycho = {
+  cover: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768642828/hardstonePsycho_uy5dpv.jpg',
+  vinyl: ['https://res.cloudinary.com/deroy68n9/image/upload/v1768642829/hardstonePsycho_vinyl_wtnwcs.jpg',
+  ]
+};
+
+const loveSick = {
+  cover: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768642832/loveSick_znnq3q.jpg',
+  vinyl: ['https://res.cloudinary.com/deroy68n9/image/upload/v1768642831/loveSick_vinyl_iwujox.jpg',
+  ]
+};
+
+const loveSickDELUXE = {
+  cover: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768642834/loveSickDeluxe_nshvkl.jpg',
+  vinyl: ['https://res.cloudinary.com/deroy68n9/image/upload/v1768642828/loveSickDeluxe_vinyl_bcmnxp.jpg',
+  ]
+};
+
 
 export const albums = [
   {
@@ -715,6 +769,139 @@ export const albums = [
     vinylColor: "orange",
     sleeveColor: "yellow",
     accentColor: "yellow",
+    description: "Future və Metro Boomin birlikdə əla duet olduqlarını sübut etməyə davam edirlər."
+  },
+  {
+    id: 32,
+    title: "ye",
+    artist: "Kanye West",
+    price: 100,
+    genre: "Hip-Hop/Rap",
+    year: 2018,
+    isNew: false,
+    isExplicit: true,
+    image: ye.cover,
+    vinylImages: ye.vinyl,
+    vinylColor: "blue",
+    sleeveColor: "blue",
+    accentColor: "blue",
+    description: "Future və Metro Boomin birlikdə əla duet olduqlarını sübut etməyə davam edirlər."
+  },
+  {
+    id: 33,
+    title: "JACKBOYS",
+    artist: "JACKBOYS & Travis Scott",
+    price: 100,
+    genre: "Hip-Hop/Rap",
+    year: 2019,
+    isNew: false,
+    isExplicit: true,
+    image: jackboys.cover,
+    vinylImages: jackboys.vinyl,
+    vinylColor: "green",
+    sleeveColor: "green",
+    accentColor: "green",
+    description: "Future və Metro Boomin birlikdə əla duet olduqlarını sübut etməyə davam edirlər."
+  },
+  {
+    id: 34,
+    title: "Starboy",
+    artist: "The Weeknd",
+    price: 150,
+    genre: "R&B/Soul",
+    year: 2016,
+    isNew: false,
+    isExplicit: true,
+    image: starboy.cover,
+    vinylImages: starboy.vinyl,
+    vinylColor: "red",
+    sleeveColor: "yellow",
+    accentColor: "yellow",
+    description: "Future və Metro Boomin birlikdə əla duet olduqlarını sübut etməyə davam edirlər."
+  },
+  {
+    id: 35,
+    title: "UY SCUTI",
+    artist: "Young Thug",
+    price: 150,
+    genre: "Hip-Hop/Rap",
+    year: 2025,
+    isNew: true,
+    isExplicit: true,
+    image: uyScuti.cover,
+    vinylImages: uyScuti.vinyl,
+    tracklistImage: uyScuti.tracklist,
+    vinylColor: "green",
+    sleeveColor: "green",
+    accentColor: "green",
+    description: "Future və Metro Boomin birlikdə əla duet olduqlarını sübut etməyə davam edirlər."
+  },
+  {
+    id: 36,
+    title: "UY SCUTI (SP5DER Edition)",
+    artist: "Young Thug",
+    price: 150,
+    genre: "Hip-Hop/Rap",
+    year: 2025,
+    isNew: true,
+    isExplicit: true,
+    image: uyScutiSP5DER.cover,
+    vinylImages: uyScutiSP5DER.vinyl,
+    tracklistImage: uyScutiSP5DER.tracklist,
+    vinylColor: "orange",
+    sleeveColor: "orange",
+    accentColor: "orange",
+    description: "Future və Metro Boomin birlikdə əla duet olduqlarını sübut etməyə davam edirlər."
+  },
+  {
+    id: 37,
+    title: "HARDSTONE PSYCHO",
+    artist: "Don Toliver",
+    price: 150,
+    genre: "Hip-Hop/Rap",
+    year: 2024,
+    isNew: true,
+    isExplicit: true,
+    image: hardstonePsycho.cover,
+    animatedCover: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768643327/hardstonePsycho_animated_ryadtu.gif',
+    vinylImages: hardstonePsycho.vinyl,
+    vinylColor: "blue",
+    sleeveColor: "blue",
+    accentColor: "blue",
+    description: "Future və Metro Boomin birlikdə əla duet olduqlarını sübut etməyə davam edirlər."
+  },
+  {
+    id: 38,
+    title: "Love Sick",
+    artist: "Don Toliver",
+    price: 100,
+    genre: "Hip-Hop/Rap",
+    year: 2023,
+    isNew: true,
+    isExplicit: true,
+    image: loveSick.cover,
+    animatedCover: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768656266/loveSick_animated_n5jqiw.gif',
+    vinylImages: loveSick.vinyl,
+    vinylColor: "red",
+    sleeveColor: "red",
+    accentColor: "red",
+    description: "Future və Metro Boomin birlikdə əla duet olduqlarını sübut etməyə davam edirlər."
+  },
+  {
+    id: 39,
+    title: "Love Sick (Deluxe)",
+    artist: "Don Toliver",
+    price: 150,
+    genre: "Hip-Hop/Rap",
+    year: 2023,
+    isNew: true,
+    isExplicit: true,
+    image: loveSickDELUXE.cover,
+    animatedCover: 'https://res.cloudinary.com/deroy68n9/image/upload/v1768656265/loveSickDeluxe_animated_qanpxy.gif',
+    vinylImages: loveSickDELUXE.vinyl,
+    vinylColor: "red",
+    sleeveColor: "red",
+    accentColor: "red",
     description: "Future və Metro Boomin birlikdə əla duet olduqlarını sübut etməyə davam edirlər."
   },
 ];
