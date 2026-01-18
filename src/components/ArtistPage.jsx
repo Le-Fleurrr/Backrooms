@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { VinylRecord } from "./VinylRecord.tsx";
+import { CDDisc } from "./CDDisc.tsx";
 import { Button } from "./ui/Button.tsx";
 import { ShoppingCart, Heart, ArrowLeft } from "lucide-react";
 import { albums } from "./Albums.jsx";
@@ -156,11 +157,18 @@ const ArtistPage = () => {
                     }`}
                     style={{ marginLeft: '20px' }}
                   >
-                    <VinylRecord 
-                      size="md" 
-                      spinning={hoveredId === album.id}
-                      vinylColor={album.vinylColor}
-                    />
+                    {album.format === "cd" ? (
+                      <CDDisc 
+                        size="md" 
+                        spinning={hoveredId === album.id}
+                      />
+                    ) : (
+                      <VinylRecord 
+                        size="md" 
+                        spinning={hoveredId === album.id}
+                        vinylColor={album.vinylColor}
+                      />
+                    )}
                   </div>
                 </div>
 
@@ -185,7 +193,6 @@ const ArtistPage = () => {
                       className="text-muted-foreground hover:text-primary shrink-0"
                       onClick={(e) => {
                         e.preventDefault();
-                        // Add to favorites logic
                       }}
                     >
                       <Heart className="w-5 h-5" />
@@ -203,7 +210,6 @@ const ArtistPage = () => {
                       className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90"
                       onClick={(e) => {
                         e.preventDefault();
-                        // Add to cart logic
                       }}
                     >
                       <ShoppingCart className="w-4 h-4" />

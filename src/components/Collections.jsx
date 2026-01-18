@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { VinylRecord } from "../components/VinylRecord.tsx";
+import { CDDisc } from "../components/CDDisc.tsx";
+import { CassetteTape } from '../components/CassetteTape.tsx';
 import { Button } from "../components/ui/Button.tsx";
 import { ShoppingCart, Heart } from "lucide-react";
 import { albums } from "./Albums.jsx";
@@ -30,7 +32,6 @@ export const Collections = () => {
     return colorMap[color || "default"] || colorMap.default;
   };
 
-  // Function to get border and text hover colors
   const getAccentColors = (color) => {
     const colorMap = {
       red: { border: "border-red-500/50", text: "group-hover:text-red-500" },
@@ -49,7 +50,6 @@ export const Collections = () => {
     return colorMap[color || "default"] || colorMap.default;
   };
 
-  // Apply filters
   let filteredAlbums = albums.filter((album) => {
     const genreMatch = genreFilter === "All" || album.genre === genreFilter;
     const yearMatch = yearFilter === "All" || album.year.toString() === yearFilter;
@@ -57,7 +57,6 @@ export const Collections = () => {
     return genreMatch && yearMatch && artistMatch;
   });
 
-  // Apply sorting
   if (sortOrder === "cheap") {
     filteredAlbums.sort((a, b) => a.price - b.price);
   } else if (sortOrder === "expensive") {
@@ -189,21 +188,28 @@ export const Collections = () => {
                     </div>
                   )}
 
-                  {/* Background decorative gradient */}
                   <div className={`absolute w-40 h-40 bg-gradient-to-br ${getSleeveColorClass(album.sleeveColor)} rounded-lg transform -rotate-6`} />
 
-                  {/* Vinyl disc - MOVES on hover */}
                   <div
-                    className={`relative transition-transform duration-500 ease-out ${
-                      hoveredId === album.id ? "translate-x-16" : "translate-x-0"
-                    }`}
+                    className={`relative transition-transform duration-500 ease-out ${hoveredId === album.id ? "translate-x-16" : "translate-x-0"
+                      }`}
                     style={{ marginLeft: "20px" }}
                   >
-                    <VinylRecord
-                      size="md"
-                      spinning={hoveredId === album.id}
-                      vinylColor={album.vinylColor}
-                    />
+                    {album.format === "cd" ? (
+                      <CDDisc size="md" spinning={hoveredId === album.id} />
+                    ) : album.format === "cassette" ? (
+                      <CassetteTape
+                        size="md"
+                        spinning={hoveredId === album.id}
+                        cassetteColor={album.cassetteColor || "black"}
+                      />
+                    ) : (
+                      <VinylRecord
+                        size="md"
+                        spinning={hoveredId === album.id}
+                        vinylColor={album.vinylColor || "black"}
+                      />
+                    )}
                   </div>
                 </div>
 
